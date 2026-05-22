@@ -1,0 +1,25 @@
+meta {
+  name: Logout
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api_base_url}}/auth/logout
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+}
+
+body {
+{
+  "refreshToken": "{{refresh_token}}",
+  "deviceId": "{{device_id}}"
+}
+}

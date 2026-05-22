@@ -1,0 +1,28 @@
+meta {
+  name: Invalid Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api_base_url}}/auth/login
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}
+
+body {
+{
+  "email": "invalid@example.com",
+  "password": "wrong"
+}
+}
+
+tests {
+test('invalid credentials rejected', function() { expect(res.status).to.be.oneOf([400, 401, 422]); });
+}

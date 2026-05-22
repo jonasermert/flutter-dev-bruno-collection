@@ -1,0 +1,18 @@
+meta {
+  name: Current User
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api_base_url}}/auth/me
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+}

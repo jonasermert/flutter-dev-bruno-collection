@@ -1,0 +1,18 @@
+meta {
+  name: Delete Account
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{api_base_url}}/users/{{user_id}}
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+}

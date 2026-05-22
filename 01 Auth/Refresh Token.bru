@@ -1,0 +1,27 @@
+meta {
+  name: Refresh Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api_base_url}}/auth/refresh
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}
+
+body {
+{
+  "refreshToken": "{{refresh_token}}"
+}
+}
+
+script:post-response {
+if (res.body && res.body.accessToken) { bru.setVar('access_token', res.body.accessToken); }
+}

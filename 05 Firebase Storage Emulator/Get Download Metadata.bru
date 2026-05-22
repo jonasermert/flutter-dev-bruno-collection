@@ -1,0 +1,14 @@
+meta {
+  name: Get Download Metadata
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{firebase_storage_emulator_url}}/v0/b/{{firebase_project_id}}.appspot.com/o/debug%2Fhello.txt
+}
+
+headers {
+  accept: application/json
+  authorization: Bearer {{access_token}}
+}

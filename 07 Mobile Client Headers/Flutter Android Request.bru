@@ -1,0 +1,21 @@
+meta {
+  name: Flutter Android Headers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_base_url}}/debug/headers
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+  user-agent: JChat/1.0.0 (Flutter; Android)
+  x-client: flutter
+  x-locale: {{locale}}
+}

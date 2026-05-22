@@ -1,0 +1,29 @@
+meta {
+  name: Firebase Emulator Sign In
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{firebase_auth_emulator_url}}/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{firebase_web_api_key}}
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}
+
+body {
+{
+  "email": "jonas@example.com",
+  "password": "password123",
+  "returnSecureToken": true
+}
+}
+
+script:post-response {
+if (res.body && res.body.idToken) { bru.setVar('access_token', res.body.idToken); }
+}

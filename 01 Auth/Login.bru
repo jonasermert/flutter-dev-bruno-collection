@@ -1,0 +1,38 @@
+meta {
+  name: Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_base_url}}/auth/login
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}
+
+body {
+{
+  "email": "jonas@example.com",
+  "password": "password123",
+  "deviceId": "{{device_id}}"
+}
+}
+
+script:post-response {
+if (res.body && res.body.accessToken) {
+  bru.setVar('access_token', res.body.accessToken);
+}
+if (res.body && res.body.refreshToken) {
+  bru.setVar('refresh_token', res.body.refreshToken);
+}
+}
+
+tests {
+test('login returns token', function() { expect(res.status).to.be.oneOf([200, 201]); });
+}

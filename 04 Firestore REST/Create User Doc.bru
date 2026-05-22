@@ -1,0 +1,24 @@
+meta {
+  name: Create User Document
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{firestore_emulator_url}}/v1/projects/{{firebase_project_id}}/databases/(default)/documents/users?documentId={{user_id}}
+}
+
+headers {
+  content-type: application/json
+  authorization: Bearer {{access_token}}
+}
+
+body {
+{
+  "fields": {
+    "displayName": { "stringValue": "Jonas" },
+    "createdAt": { "timestampValue": "2026-01-01T00:00:00Z" },
+    "premium": { "booleanValue": false }
+  }
+}
+}

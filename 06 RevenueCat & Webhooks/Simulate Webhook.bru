@@ -1,0 +1,25 @@
+meta {
+  name: Simulate RevenueCat Webhook
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_base_url}}/webhooks/revenuecat
+}
+
+headers {
+  content-type: application/json
+  authorization: Bearer {{revenuecat_webhook_auth}}
+}
+
+body {
+{
+  "event": {
+    "type": "INITIAL_PURCHASE",
+    "app_user_id": "{{user_id}}",
+    "product_id": "pro_monthly",
+    "environment": "SANDBOX"
+  }
+}
+}

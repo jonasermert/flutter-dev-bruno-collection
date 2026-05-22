@@ -1,0 +1,17 @@
+meta {
+  name: Mobile App Config
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api_base_url}}/config/mobile?platform={{platform}}&version={{app_version}}
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}

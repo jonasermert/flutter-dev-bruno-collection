@@ -1,0 +1,18 @@
+meta {
+  name: Upload Text File
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{firebase_storage_emulator_url}}/v0/b/{{firebase_project_id}}.appspot.com/o?uploadType=media&name=debug%2Fhello.txt
+}
+
+headers {
+  content-type: text/plain
+  authorization: Bearer {{access_token}}
+}
+
+body {
+Hello from Bruno and Flutter debugging!
+}

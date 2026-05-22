@@ -1,0 +1,21 @@
+meta {
+  name: Unauthorized Request
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_base_url}}/auth/me
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+}
+
+tests {
+test('should be unauthorized', function() { expect(res.status).to.be.oneOf([401, 403]); });
+}

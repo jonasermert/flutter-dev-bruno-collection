@@ -1,0 +1,21 @@
+meta {
+  name: GraphQL Viewer Query
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_base_url}}/graphql
+}
+
+headers {
+  content-type: application/json
+  authorization: Bearer {{access_token}}
+}
+
+body {
+{
+  "query": "query Viewer { viewer { id email displayName } }",
+  "variables": {}
+}
+}

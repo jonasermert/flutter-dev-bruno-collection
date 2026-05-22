@@ -1,0 +1,14 @@
+meta {
+  name: List Users Documents
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{firestore_emulator_url}}/v1/projects/{{firebase_project_id}}/databases/(default)/documents/users
+}
+
+headers {
+  accept: application/json
+  authorization: Bearer {{access_token}}
+}

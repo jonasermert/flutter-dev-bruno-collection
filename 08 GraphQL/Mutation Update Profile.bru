@@ -1,0 +1,21 @@
+meta {
+  name: GraphQL Update Profile Mutation
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api_base_url}}/graphql
+}
+
+headers {
+  content-type: application/json
+  authorization: Bearer {{access_token}}
+}
+
+body {
+{
+  "query": "mutation UpdateProfile($name: String!) { updateProfile(displayName: $name) { id displayName } }",
+  "variables": { "name": "Jonas" }
+}
+}

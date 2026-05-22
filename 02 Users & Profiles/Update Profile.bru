@@ -1,0 +1,26 @@
+meta {
+  name: Update Profile
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{api_base_url}}/users/{{user_id}}
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+}
+
+body {
+{
+  "displayName": "Jonas",
+  "photoUrl": "https://example.com/avatar.png",
+  "locale": "{{locale}}"
+}
+}

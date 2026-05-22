@@ -1,0 +1,18 @@
+meta {
+  name: Slow Endpoint
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api_base_url}}/debug/sleep?ms=3000
+}
+
+headers {
+  accept: application/json
+  content-type: application/json
+  x-app-version: {{app_version}}
+  x-platform: {{platform}}
+  x-device-id: {{device_id}}
+  authorization: Bearer {{access_token}}
+}
